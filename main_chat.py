@@ -2,17 +2,17 @@ from spy_details import spy, Spy, ChatMessage, friends
 from steganography.steganography import Steganography
 from datetime import datetime
 
-STATUS_MESSAGES =['Heaven', 'Nothing is permanent', 'Boost yourself and Move on']
+STATUS_MESSAGES =['Heaven hunts me,Hell hates me', 'Everything is temporary-this fact is permanent', 'Boost yourself and Move on']#some cool statuses to choose from
 
 
 print "Welcome to spy_chat"
 
 existing = raw_input("Do you want to continue as " + spy.salutation + " " + spy.name + " (Y/N)? ")
+#go as admin?
 
+def add_status():#function to update or add status
 
-def add_status():
-
-    updated_status_message = None
+    updated_status_message = None 
 
     if spy.current_status_message != None:
 
@@ -55,7 +55,7 @@ def add_status():
     return updated_status_message
 
 
-def add_friend():
+def add_friend(): #function to add friend
 
     new_friend = Spy('','',0,0.0)
 
@@ -79,7 +79,7 @@ def add_friend():
     return len(friends)
 
 
-def select_a_friend():
+def select_a_friend():   #function to select friend
     item_number = 0
 
     for friend in friends:
@@ -95,7 +95,7 @@ def select_a_friend():
     return friend_choice_position
 
 
-def send_message():
+def send_message(): #function to send message
 
     friend_choice = select_a_friend()
 
@@ -111,7 +111,7 @@ def send_message():
     print "Your secret message image is ready!"
 
 
-def read_message():
+def read_message():#function to read latest message
 
     sender = select_a_friend()
 
@@ -126,7 +126,7 @@ def read_message():
     print "Your secret message has been saved!"
 
 
-def read_chat_history():
+def read_chat_history(): #function to read messages from friends
 
     read_for = select_a_friend()
 
@@ -139,7 +139,7 @@ def read_chat_history():
             print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.message)
 
 
-def start_chat(spy):
+def start_chat(spy): #function to start a chat
 
     spy.name = spy.salutation + " " + spy.name
 
